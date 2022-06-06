@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">News Accessibility</string>
+    <string name="desc_action_open_news">Open news</string>
+    <string name="desc_action_open_on_web">Open web and see full content</string>
+    <string name="desc_loading_news">Loading news</string>
+    <string name="desc_publishedAt">Published at %1$s</string>
+    <string name="desc_icon_open_on_web">Icon external link</string>
+    <string name="desc_ordinal_list">%1$s News</string>
+    <string name="no_description">No description</string>
+    <string name="no_content">No content</string>
+</resources>
