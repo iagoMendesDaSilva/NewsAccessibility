@@ -1,6 +1,6 @@
 package com.iago.newsaccessibility.repository
 
-import com.iago.newsaccessibility.utils.Constants
+import com.iago.newsaccessibility.BuildConfig
 import com.iago.newsaccessibility.api.NewsApi
 import com.iago.newsaccessibility.models.ListNews
 import com.iago.newsaccessibility.models.Resource
@@ -11,7 +11,7 @@ class NewsRepository @Inject constructor(private val api: NewsApi) {
 
     suspend fun getNews(): Resource<ListNews> {
         val response = try {
-            api.getNews(Constants.TOKEN)
+            api.getNews(BuildConfig.API_KEY)
         } catch (e: HttpException) {
             return Resource.Error("Couldn't request news")
         } catch (e: Exception) {

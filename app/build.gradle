@@ -3,8 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id "kotlin-parcelize"
-    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 }
 
 android {
@@ -21,6 +19,10 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        buildConfigField "String", "API_KEY", "\"${properties.getProperty("API_KEY")}\""
+
     }
 
     buildTypes {
@@ -64,26 +66,12 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
-    //Navigation
-    implementation("androidx.navigation:navigation-compose:$navigation_version")
-
     // Dagger - Hilt
     implementation 'com.google.dagger:hilt-android:2.39'
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:2.39"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0-beta01"
-
-    // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.5.2"
-
-    // Coroutine Lifecycle Scopes
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
-
-    //lifecycle
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
 
     // Coil
     implementation("io.coil-kt:coil-compose:2.0.0-rc01")

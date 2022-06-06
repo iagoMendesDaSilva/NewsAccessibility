@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 object Format {
 
     fun formatContent(content: String): String {
-        return content?.split("[+")[0]
+        return content.split("[+")[0]
     }
 
     fun formatDate(publishedAt: String): String {

@@ -1,8 +1,8 @@
 package com.iago.newsaccessibility.modules
 
-import com.iago.newsaccessibility.utils.Constants
 import com.iago.newsaccessibility.api.NewsApi
 import com.iago.newsaccessibility.repository.NewsRepository
+import com.iago.newsaccessibility.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
