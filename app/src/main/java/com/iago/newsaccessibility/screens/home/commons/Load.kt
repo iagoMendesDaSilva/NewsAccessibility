@@ -5,6 +5,7 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
@@ -22,6 +23,7 @@ fun Load() {
         strokeWidth = 3.dp,
         modifier = Modifier
             .size(25.dp)
+            .testTag("load")
             .semantics(mergeDescendants = false) {
                 contentDescription = description
             }

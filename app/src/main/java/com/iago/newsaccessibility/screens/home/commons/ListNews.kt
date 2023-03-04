@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.iago.newsaccessibility.models.Article
 
@@ -33,6 +34,7 @@ fun ListNews(news: List<Article>) {
                 .fillMaxSize()
                 .background(color = MaterialTheme.colors.background)
                 .padding(10.dp)
+                .testTag("list")
         ) {
             items(news.size) { index ->
                 NewsItem(news[index], index) { newsOpened.value = it }
